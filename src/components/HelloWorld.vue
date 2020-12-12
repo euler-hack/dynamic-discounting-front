@@ -20,10 +20,6 @@ import { mapGetters } from 'vuex';
   
 export default {
   name: 'HelloWorld',
-  beforeCreate () {
-      console.log('registerWeb3 Action dispatched');
-      this.$store.dispatch("registerWeb3");
-  },
   props: {
     msg: String
 },

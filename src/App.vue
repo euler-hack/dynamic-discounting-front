@@ -47,6 +47,10 @@ computed: {
     networkId: state => state.networkId
   }),
   ...mapGetters(["isCorrectNetwork"])
-}
+},
+beforeCreate () {
+      console.log('registerWeb3 Action dispatched');
+      this.$store.dispatch("registerWeb3");
+  }
 }
 </script>
