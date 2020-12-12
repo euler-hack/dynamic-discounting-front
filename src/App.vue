@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div id="nav" v-if="isCorrectNetwork">
-      <router-link to="/last">Последние события</router-link> |
+      <router-link to="/create">Создать аукцион</router-link> |
       <router-link to="/offers">Предложения</router-link> |
-      <router-link to="/active">Активные сделки</router-link> |
-      <router-link to="/close">Завершенные сделки</router-link> |
+      <router-link to="/active">Активные аукционы</router-link> |
+      <router-link to="/close">Завершенные аукционы</router-link>
     </div>
     <div id="nav" v-else>
       

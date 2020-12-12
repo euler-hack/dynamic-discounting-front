@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
-    <h1>This is an active page</h1>
+  <div class="active">
+    <h1>Активные аукционы</h1>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
-    <h1>This is an close page</h1>
+  <div class="close">
+    <h1>Закрытые аукционы</h1>
   </div>
 </template>
