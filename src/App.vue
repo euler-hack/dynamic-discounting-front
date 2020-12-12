@@ -1,10 +1,13 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <div id="nav" v-if="isCorrectNetwork">
       <router-link to="/last">Последние события</router-link> |
       <router-link to="/offers">Предложения</router-link> |
       <router-link to="/active">Активные сделки</router-link> |
       <router-link to="/close">Завершенные сделки</router-link> |
+    </div>
+    <div id="nav" v-else>
+      
     </div>
     <router-view/>
   </div>
@@ -32,3 +35,18 @@
   color: #42b983;
 }
 </style>
+
+<script>
+import {mapState} from 'vuex'
+import { mapGetters } from 'vuex';
+  
+export default {
+  name: 'App',
+computed: {
+  ...mapState({
+    networkId: state => state.networkId
+  }),
+  ...mapGetters(["isCorrectNetwork"])
+}
+}
+</script>

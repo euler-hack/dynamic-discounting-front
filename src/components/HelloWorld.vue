@@ -1,11 +1,22 @@
 <template>
 <div class="main">
-  <h1>Network {{ networkId }}</h1>
+  <div v-if="isCorrectNetwork">
+    <h1>Correct network!</h1>
+    <p>Вы подключены к правильной сети {{ networkId }}. Можете приступать к работе.</p>
+  </div>
+  <div v-else>
+    <h1>Wrong settings :(</h1>
+    <p>Вы не подключены к сети</p>
+    <p>Для доступа к системе необходимо установить metamask.</p>
+    <p>Данные для подключения: <br />RPC: http://130.193.58.123:8545, <br />NetworkID: 0xf2c2a0839.</p>
+  </div>
+  
 </div>
 </template>
 
 <script>
 import {mapState} from 'vuex'
+import { mapGetters } from 'vuex';
   
 export default {
   name: 'HelloWorld',
@@ -16,10 +27,12 @@ export default {
   props: {
     msg: String
 },
-computed: mapState({
-ethereum: state => state.ethereum,
-networkId: state => state.networkId
-})
+computed: {
+  ...mapState({
+    networkId: state => state.networkId
+  }),
+  ...mapGetters(["isCorrectNetwork"])
+}
 }
 </script>
 

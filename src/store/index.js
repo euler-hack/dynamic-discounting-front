@@ -8,6 +8,11 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     strict: true,
     state,
+    getters: {
+        isCorrectNetwork: state => {
+            return state.networkId == 0xf2c2a0839
+        }
+    },
     mutations: {
         registerChainId (state, chainId) {
             state.networkId = chainId;
