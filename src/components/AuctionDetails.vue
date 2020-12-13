@@ -1,7 +1,7 @@
 <template>
 <div class="details">
   <div class="info" v-if="auction_id">
-    <p>ID: {{ auction_id }}.</p>
+    <h2>Информация об аукционе #{{ auction_id }}</h2>
 
     <p>Сумма: {{ amount }}, Минимальная процентная ставка: {{ percent }}%.</p>
 

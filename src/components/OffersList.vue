@@ -4,6 +4,8 @@
     <div class="button" v-for="item in list" :key="item"><button v-on:click="getInfo">{{ item }}</button></div>
   </div>
   <AuctionDetails v-bind:auction_id="current" />
+  <RespondAuction v-bind:auction_id="current" v-if="current" />
+  
 </div>
 </template>
 
@@ -11,6 +13,7 @@
 <script>
 import {mapState, mapGetters} from 'vuex'
 import AuctionDetails from "@/components/AuctionDetails.vue"
+import RespondAuction from "@/components/RespondAuction.vue"
 
 export default {
 name: 'AuctionList',
@@ -21,7 +24,8 @@ current: null
 }
 },
 components: {
-AuctionDetails
+AuctionDetails,
+RespondAuction
 },
 computed: {
   ...mapState({
