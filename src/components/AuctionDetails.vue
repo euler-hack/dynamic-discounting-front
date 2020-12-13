@@ -20,7 +20,7 @@
     <div v-if="suppliers">
       <h2>Все ставки</h2>
       <p v-for="supplier in suppliers" :key="supplier.buyer">
-	Сумма: {{ amount }}, Процент: {{ percent }}%  <br>(Предложил {{ supplier.address }})
+	Сумма: {{ supplier.needAmount }}, Процент: {{ supplier.discountPercent }}%  <br>(Предложил {{ supplier.supplierAddress }})
       </p>
     </div>
   </div>
@@ -121,9 +121,8 @@ this.fcontract = res.signedContract
 },
 updateAuctionSuppliers: function(res) {
 console.log(res)
-this.suppliers = []
-let lst = this.suppliers
-res.forEach(function (x) {lst.push({address: x[0], amount: x[1], percent: x[2]})})
+this.suppliers = res
+
 }
 }
 }
