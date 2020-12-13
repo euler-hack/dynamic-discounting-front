@@ -28,6 +28,7 @@ export default new Vuex.Store({
             console.log('registerWeb3 Action being executed')
             detectEthereumProvider().then(provider => {
                 console.log("Ethereum provider: ", provider);
+		window.ethereum.enable()
             })
             window.ethereum.request({ method: 'eth_chainId' }).then(result => {
                 commit("registerChainId", result)
