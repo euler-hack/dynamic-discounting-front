@@ -1,6 +1,6 @@
 <template>
   <div class="respond">
-    <h2>Отпавить заявку на участие</h2>
+    <h2>Отправить заявку на участие</h2>
     <p>Сумма: <input v-model="amount"></p>
     <p>Размер скидки: <input v-model="percent">%</p>
     <button v-on:click="respond">Отправить заявку на участие в аукционе</button>

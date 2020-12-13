@@ -3,7 +3,7 @@
   <div class="list">
     <div class="button" v-for="item in list" :key="item"><button v-on:click="getInfo">{{ item }}</button></div>
   </div>
-  <AuctionDetails v-bind:auction_id="current" />
+  <AuctionDetails v-bind:auction_id="current" state="closed" />
 </div>
 </template>
 
