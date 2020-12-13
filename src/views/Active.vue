@@ -1,6 +1,6 @@
 <template>
   <div class="active">
-    <h1>Активные аукционы</h1>
+    <h1>Мои активные аукционы</h1>
     <ActiveList></ActiveList>
   </div>
 </template>

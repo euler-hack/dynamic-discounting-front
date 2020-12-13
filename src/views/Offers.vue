@@ -1,6 +1,6 @@
 <template>
   <div class="offers">
-    <h1>Предложения</h1>
+    <h1>Открытые аукционы</h1>
     <OffersList></OffersList>
   </div>
 </template>
