@@ -11,6 +11,10 @@ export default new Vuex.Store({
     getters: {
         isCorrectNetwork: state => {
             return state.networkId == 0xf2c2a0839
+        },
+        contract: state => {
+            let c = window.web3.eth.contract(state.abi);
+            return c.at(state.contract_address)
         }
     },
     mutations: {
