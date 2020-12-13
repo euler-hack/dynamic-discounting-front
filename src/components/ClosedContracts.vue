@@ -1,24 +1,60 @@
 <template>
-<div class="closedcontracts">
-
-    <ul>
-    <li> <a href="#">0x7205204517450390568422551674641324530785</a> </li>
-    <li> <a href="#">0x9974486278768264410188213979463340223230</a> </li>
-    <li> <a href="#">0x5649086579951224633164515610187677601180</a> </li>
-    <li> <a href="#">0x2059861733668040092779417698063622621008</a> </li>
-    <li> <a href="#">0x4135615632388586712561408648791275121913</a> </li>
-  </ul>
-
+<div class="activelist">
+  <div class="list">
+    <div class="button" v-for="item in list" :key="item"><button v-on:click="getInfo">{{ item }}</button></div>
+  </div>
+  <AuctionDetails v-bind:auction_id="current" />
 </div>
 </template>
 
+
 <script>
+import {mapState, mapGetters} from 'vuex'
+import AuctionDetails from "@/components/AuctionDetails.vue"
+
 export default {
-  name: 'ClosedContracts'
+name: 'AuctionList',
+data: function () {
+return {
+list: [],
+current: null
+}
+},
+components: {
+AuctionDetails
+},
+computed: {
+  ...mapState({
+    networkId: state => state.networkId
+  }),
+  ...mapGetters(["contract"])
+},
+mounted () {
+    let self = this
+    this.contract.getClosedAuctions(function(err, res) {self.updateList(res)})
+},
+methods: {
+  updateList: function (res) {
+    this.list = []
+    let lst = this.list
+    res.forEach(function(x) {lst.push(parseInt(x))})
+  },
+getInfo: function(res) {
+    let id = res.target.outerText;
+    console.log(id);
+    this.current = id
+}
+}
 }
 </script>
 
+
 <style>
-  .closedcontracts {
+  .button {
+  display: inline;
+  margin-left: 5px;
+  margin-right: 5px;
   }
+
+  .list {margin-bottom: 20px}
 </style>
